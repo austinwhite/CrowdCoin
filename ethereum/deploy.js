@@ -3,8 +3,8 @@ const Web3 = require("web3");
 const compiledFactory = require("../ethereum/build/CampaignFactory.json");
 
 const provider = new HDWalletProvider(
-  "YOUR METAMASK PHRASE",
-  "BLOCKCHAIN NODE ADDRESS"
+  "YOUR WALLET PHRASE",
+  "https://rinkeby.infura.io/v3/cb05a8b0617446b4a47d925d33acc41f"
 );
 const web3 = new Web3(provider);
 
