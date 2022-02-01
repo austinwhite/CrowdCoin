@@ -1,5 +1,8 @@
+import { createDecipheriv } from "crypto";
 import React, { Component } from "react";
+import { Button, Card } from "semantic-ui-react";
 import factory from "../ethereum/factory";
+import Layout from "../components/Layout";
 
 class CampaignIndex extends Component {
   static async getInitialProps() {
@@ -8,8 +11,33 @@ class CampaignIndex extends Component {
     return { campaigns };
   }
 
+  renderCampaigns() {
+    const items = this.props.campaigns.map((address) => {
+      return {
+        header: address,
+        description: <a>View Campaign</a>,
+        fluid: true,
+      };
+    });
+
+    return <Card.Group items={items} />;
+  }
+
   render() {
-    return <div>{this.props.campaigns[0]}</div>;
+    return (
+      <Layout>
+        <div>
+          <link
+            async
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css"
+          />
+          <h3>open campaigs</h3>
+          {this.renderCampaigns()}
+          <Button content="Create Campaign" icon="add circle" primary />
+        </div>
+      </Layout>
+    );
   }
 }
 
