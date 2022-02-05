@@ -4,7 +4,7 @@ const compiledFactory = require("../ethereum/build/CampaignFactory.json");
 
 const provider = new HDWalletProvider(
   // rinkby test wallet
-  "ritual history awesome salute profit town swift estate fever gasp fun quick",
+  "WALLET PHRASE",
   "https://rinkeby.infura.io/v3/cb05a8b0617446b4a47d925d33acc41f"
 );
 const web3 = new Web3(provider);
