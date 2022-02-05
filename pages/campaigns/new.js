@@ -6,17 +6,13 @@ import web3 from "../../ethereum/web3";
 import { Link, Router } from "../../routes";
 
 class CampaignNew extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      minimumContribution: "",
-      errorMessage: "",
-      loading: false,
-    };
-    this.onSubmit = this.onSubmit.bind(this);
-  }
+  state = {
+    minimumContribution: "",
+    errorMessage: "",
+    loading: false,
+  };
 
-  async onSubmit(event) {
+  onSubmit = async (event) => {
     event.preventDefault();
 
     this.setState({ loading: true, errorMessage: "" });
@@ -35,7 +31,7 @@ class CampaignNew extends Component {
     }
 
     this.setState({ loading: false });
-  }
+  };
 
   render() {
     return (
@@ -45,6 +41,7 @@ class CampaignNew extends Component {
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Field>
             <label>Minimum Contribution</label>
+
             <Input
               label="wei"
               labelPosition="right"
@@ -55,11 +52,7 @@ class CampaignNew extends Component {
             />
           </Form.Field>
 
-          <Message
-            error
-            header="Oops!"
-            content={this.state.errorMessage}
-          ></Message>
+          <Message error header="Oops!" content={this.state.errorMessage} />
           <Button loading={this.state.loading} primary>
             Create
           </Button>
