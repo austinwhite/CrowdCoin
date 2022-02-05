@@ -52,7 +52,7 @@ class CampaignNew extends Component {
             />
           </Form.Field>
 
-          <Message error header="Oops!" content={this.state.errorMessage} />
+          <Message error header="Error" content={this.state.errorMessage} />
           <Button loading={this.state.loading} primary>
             Create
           </Button>
